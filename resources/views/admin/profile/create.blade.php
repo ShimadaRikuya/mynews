@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Myプロフィール作成画面</title>
-</head>
-<body>
-  <h1>Myプロフィール作成画面</h1>
-</body>
-</html>
+{{-- layouts/profile.blade.phpを読み込む --}}
+@extends('layouts.profile')
+
+
+{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+@section('title', 'プロフィール')
+
+{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>ニュース新規作成</h2>
+            </div>
+        </div>
+    </div>
+@endsection
