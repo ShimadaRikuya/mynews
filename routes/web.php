@@ -18,3 +18,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin' , 'middleware' => 'auth'], function() {
+    Route::get('Profile/create', 'Admin\ProfileController@add');
+});
