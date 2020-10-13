@@ -30,14 +30,14 @@
                         <legend class="col-form-label col-sm-2 pt-0">性別</legend>
                         <div class="col-md-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
+                                <input class="form-check-input" type="radio" name="gender" {{ old('gender') || !$errors->any() ? 'checked' : '' }}>
+                                <label class="form-check-label" for="gender">
                                     男性
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
+                                <input class="form-check-input" type="radio" name="gender" {{ old('gender') || !$errors->any() ? 'checked' : '' }}>
+                                <label class="form-check-label" for="gender">
                                     女性
                                 </label>
                             </div>
