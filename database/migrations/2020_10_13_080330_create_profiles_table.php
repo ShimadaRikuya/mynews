@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfileTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('profile', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->comment('投稿者名');
-            $table->tinyInteger('gender')->comment('性別 : 1 : 男性 2 : 女性');
+            $table->string('gender')->comment('性別 : 1 : 男性 2 : 女性');
             $table->string('hobby')->nullable()->comment('趣味');
             $table->string('introduction')->comment('自己紹介');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreateProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profile');
+        Schema::dropIfExists('profiles');
     }
 }

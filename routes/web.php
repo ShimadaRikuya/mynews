@@ -28,3 +28,4 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth'], function() {
     Route::post('Profile/create', 'Admin\ProfileController@create');
 
 });
+

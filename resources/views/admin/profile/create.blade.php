@@ -27,17 +27,17 @@
                 </div>
                 <fieldset class="form-group">
                     <div class="row">
-                        <legend class="col-form-label col-sm-2 pt-0">性別</legend>
+                        <legend class="col-form-label col-sm-2 pt-0" for="gender">性別</legend>
                         <div class="col-md-10">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gender" {{ old('gender') || !$errors->any() ? 'checked' : '' }}>
-                                <label class="form-check-label" for="gender">
+                                <label class="form-check-label">
                                     男性
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gender" {{ old('gender') || !$errors->any() ? 'checked' : '' }}>
-                                <label class="form-check-label" for="gender">
+                                <label class="form-check-label">
                                     女性
                                 </label>
                             </div>
