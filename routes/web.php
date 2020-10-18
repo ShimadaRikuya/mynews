@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin'], function () {
     Route::get('profile/create', 'Admin\ProfileController@add');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
-    
+
 });
 
 Auth::routes();
@@ -26,6 +26,6 @@ Auth::routes();
 Route::group(['prefix' => 'admin' , 'middleware' => 'auth'], function() {
     Route::get('Profile/create', 'Admin\ProfileController@add');
     Route::post('Profile/create', 'Admin\ProfileController@create');
-
+    Route::get('profile/', 'Admin\ProfileController@index');
 });
 

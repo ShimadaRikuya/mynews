@@ -1,7 +1,7 @@
 {{-- layouts/profile.blade.phpを読み込む --}}
 @extends('layouts.profile')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')に'Myプロフィール'を埋め込む --}}
 @section('title', 'Myプロフィール')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
@@ -30,16 +30,10 @@
                         <legend class="col-form-label col-sm-2 pt-0" for="gender">性別</legend>
                         <div class="col-md-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" {{ old('gender') || !$errors->any() ? 'checked' : '' }}>
-                                <label class="form-check-label">
-                                    男性
-                                </label>
+                                <input class="form-check-input" type="radio" name="gender" value="男性" @if ( old('gender') != '女性' )checked="checked"@endif>男性
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" {{ old('gender') || !$errors->any() ? 'checked' : '' }}>
-                                <label class="form-check-label">
-                                    女性
-                                </label>
+                                <input class="form-check-input" type="radio" name="gender" value="女性" @if ( old('gender') == '女性' ) checked="checked"@endif>女性
                             </div>
                         </div>
                     </div>
