@@ -42,14 +42,39 @@ public function create(Request $request)
     return redirect('admin/profile/create');
 }
 
-public function edit()
+public function edit(Request $request)
 {
-    return view('admin.profile.edit');
+    // Profile Modelからデータを取得する
+    $posts = Profile::find($request->id);
+    if (empty($posts)) {
+        abort(404);
+    }
+    return view('admin.profile.edit', ['posts_form' => $posts]);
 }
 
-public function update()
+public function update(Request $request)
 {
-    return redirect('admin/profile/edit');
+    // Validationをかける
+    $this->validate($request, Profile::$rules);
+    // Profile Modelからデータを取得する
+    $posts = Profile::find($request->id);
+    // 送信されてきたフォームデータを格納する
+    $posts_form = $request->all();
+    unset($posts_form['_token']);
+
+    // 該当するデータを上書きして保存する
+    $posts->fill($posts_form)->save();
+
+    return redirect('admin/profile/');
+}
+
+public function delete(Request $request)
+{
+    // 該当するProfile Modelを取得
+    $posts = Profile::find($request->id);
+    // 削除する
+    $posts->delete();
+    return redirect('admin/profile/');
 }
 
 }

@@ -46,6 +46,15 @@
                   <td>{{ $post->gender, 2 }}</td>
                   <td>{{ str_limit($post->hobby, 200) }}</td>
                   <td>{{ str_limit($post->introduction, 250) }}</td>
+                  <td>
+                    <div>
+                      <a href="{{ action('Admin\ProfileController@edit', ['id' => $post->id]) }}">編集
+                      </a>
+                    </div>
+                    <div>
+                      <a href="{{ action('Admin\ProfileController@delete', ['id' => $post->id]) }}">削除</a>
+                    </div>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
