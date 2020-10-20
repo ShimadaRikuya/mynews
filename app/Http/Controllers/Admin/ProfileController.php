@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Profile;
+use App\History;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -64,6 +66,11 @@ public function update(Request $request)
 
     // 該当するデータを上書きして保存する
     $posts->fill($posts_form)->save();
+
+    $history = new History;
+    $history->profile_id = $posts->id;
+    $history->edited_at = Carbon::now();
+    $history->save();
 
     return redirect('admin/profile/');
 }
